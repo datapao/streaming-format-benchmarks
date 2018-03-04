@@ -1,0 +1,11 @@
+{"namespace": "datapao.benchmark",
+ "type": "record",
+ "name": "AVROEvent",
+ "fields": [
+     {"name": "scan_rate", "type": "int"},
+     {"name": "node_id",  "type": "string"},
+     {"name": "value",  "type": "double"},
+     {"name": "type",  "type": "string"},
+     {"name": "timestamp",  "type": "string"}
+ ]
+}

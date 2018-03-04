@@ -102,3 +102,23 @@ ENV/
 
 # idea
 .idea/
+
+
+processing-in-go/bin/
+processing-in-go/events.avro
+processing-in-go/output.jsonlines
+processing-in-go/pkg/
+processing-in-go/src/github.com/alanctgardner/
+processing-in-go/src/github.com/datapao/streaming-format-benchmarks/benchmark_output.jsonlines
+processing-in-go/src/github.com/datapao/streaming-format-benchmarks/events.avro
+processing-in-go/src/github.com/datapao/streaming-format-benchmarks/events.goavro.avro
+processing-in-go/src/github.com/datapao/streaming-format-benchmarks/output.jsonlines
+processing-in-go/src/github.com/datapao/streaming-format-benchmarks/streaming-format-benchmarks
+processing-in-go/src/github.com/golang/
+processing-in-go/src/github.com/linkedin/
+processing-in-go/src/github.com/mailru/
+processing-in-go/src/github.com/xeipuuv/
+processing-in-python/benchmark_output.avro
+processing-in-python/benchmark_output.jsonlines
+processing-in-python/events.avro
+processing-in-python/output.json
