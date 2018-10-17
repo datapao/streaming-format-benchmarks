@@ -1,2 +1,4 @@
 avro-python3==1.8.2
+fastavro==0.21.9
+jsonschema==2.6.0
 ujson==1.35
