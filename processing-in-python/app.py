@@ -1,9 +1,11 @@
 import json
-import ujson
-import avro
-import timeit
 import os
+import timeit
+import sys
 
+import avro
+import fastavro
+import ujson
 from avro.datafile import DataFileWriter, DataFileReader
 from avro.io import DatumWriter, DatumReader
 from jsonschema import validate
@@ -131,5 +133,21 @@ with open(avro_filename, "rb") as avro_f:
     avro_wt = timeit.timeit(read_avro, number=n)
     print("python,avro,decoding,{},{:.2f}".format(n, avro_wt))
     reader.close()
+
+
+with open(avro_filename, "wb") as avro_f:
+    def write_avro():
+        event_generator=(event for _ in range(n))
+        fastavro.writer(avro_f,avro_schema,event_generator)
+    avro_schema = fastavro.schema.load_schema("event.avsc")
+    avro_t = timeit.timeit(write_avro, number=1)
+    print("python,fastavro,encoding,{},{:.2f}".format(n, avro_t))
+
+with open(avro_filename, "rb") as avro_f:
+    def read_avro():
+        u = reader.__iter__().__next__()
+    reader = fastavro.reader(avro_f)
+    avro_wt = timeit.timeit(read_avro, number=n)
+    print("python,fastavro,decoding,{},{:.2f}".format(n, avro_wt))
 
 print("AVRO output size: {:,} bytes".format(os.path.getsize(avro_filename)))
